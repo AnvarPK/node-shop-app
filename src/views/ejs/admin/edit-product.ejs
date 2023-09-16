@@ -1,0 +1,45 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/form.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+            <h1>
+                <%= docTitle %>
+            </h1>
+            <div class="form-container">
+                <form action="/admin/<% if(isEditProduct){ %>edit-product<% } else { %>add-product<% } %>"
+                    method="POST">
+                    <div class="form-control">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title"
+                            value="<% if(isEditProduct){ %> <%= product.title %> <% } %>" required>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="imageUrl">Image URL:</label>
+                        <input type="text" id="imageUrl" name="imageUrl"
+                            value="<% if(isEditProduct){ %> <%= product.imageUrl %> <% } %>" required>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="price">Price:</label>
+                        <input type="number" id="price" name="price" step="0.01"
+                            value="<% if(isEditProduct){ %><%= product.price %><%  } %>" required>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description"
+                            required><% if(isEditProduct){ %> <%= product.description %> <%  } %></textarea>
+                    </div>
+                    <% if(isEditProduct){ %>
+                        <input type="hidden" id="productId" name="productId"
+                            value="<%= product.id %>" required>
+                        <% } %>
+                            <button type="submit">
+                                <% if(isEditProduct){ %>Update <% } else { %> Add <% } %> Product
+                            </button>
+                </form>
+            </div>
+            <%- include('../includes/end.ejs') %>

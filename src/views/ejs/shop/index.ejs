@@ -1,28 +1,29 @@
-<%- include('includes/head.ejs') %>
+<%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="/css/shop.css">
     </head>
 
     <body>
-        <%- include('includes/navigation.ejs') %>
+        <%- include('../includes/navigation.ejs') %>
             <h1>My Products</h1>
             <% if (products.length>0) { %>
                 <ul class="product-list">
                     <% for(product of products) { %>
                         <li class="product">
-                            <img class="product-image" src="<%= product.imageURL %>" alt="<%= product.title %>">
-                            <h2 class="product-title">
+                            <img class="product-image" src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                            <h3 class="product-title">
                                 <%= product.title %>
-                            </h2>
+                            </h3>
                             <p class="product-description">
                                 <%= product.description %>
                             </p>
-                            <p class="product-price">Price: <%= product.price %>
+                            <p class="product-price">Price: $<%= product.price %>
                             </p>
-                            <button class="add-to-cart">Add to Cart</button>
+                            <%- include('../includes/add-to-cart.ejs', { product }) %>
+
                         </li>
                         <% } %>
                 </ul>
                 <% } else { %>
                     <h2>No Products</h2>
                     <% } %>
-<%- include('includes/end.ejs') %>
+<%- include('../includes/end.ejs') %>

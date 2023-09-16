@@ -1,0 +1,29 @@
+.product-container {
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-container  h1 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.product-container  img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
+
+.product-container  p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.product-container  .price {
+    font-size: 1.25rem;
+    color: #333;
+    font-weight: bold;
+}

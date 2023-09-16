@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const rootDir = require('./utils/path');
+const rootDir = require('./utils/mainModulePath');
 // const { engine } = require ('express-handlebars');
 const errorController = require('./controllers/error');
 

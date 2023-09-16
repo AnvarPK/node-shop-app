@@ -1,0 +1,18 @@
+extends layouts/main-layout.pug
+
+block styles 
+    link(rel="stylesheet" href="/css/shop.css")
+
+block content
+    h1 My Products 
+    if products.length > 0
+        ul.product-list
+            each product in products
+                li.product
+                    img.product-image(src=product.imageUrl, alt=product.title)
+                    h2.product-title= product.title
+                    p.product-description= product.description
+                    p.product-price= `Price: $${product.price}`
+                    button.add-to-cart Add to Cart
+    else 
+        h2 No Products
